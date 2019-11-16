@@ -8,7 +8,7 @@ class Feeds extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.tvFeed}>Feeds</Text>
-                <Button title="Go to Profile" />
+                <Button title="Go to Profile" onPress={() => this.props.navigation.navigate('ProfileScreen')}/>
             </View>
         );
     }
