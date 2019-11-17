@@ -8,7 +8,7 @@ class Home extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.tvHome}>Home</Text>
-                <Button title="Go to Feed" onPress={() => this.props.navigation.navigate('FeedScreen')} />
+                <Button title="Go to Feed" onPress={() => this.props.navigation.navigate('Feed')} />
             </View>
         );
     }
