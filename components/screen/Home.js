@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
 // create a component
-class Profile extends Component {
+class Home extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.tvProfile}>Profile</Text>
-                <Button title="Go to Home" onPress={() => this.props.navigation.navigate('HomeScreen')}/>
+                <Text style={styles.tvHome}>Home</Text>
+                <Button title="Go to Feed" onPress={() => this.props.navigation.navigate('FeedScreen')} />
             </View>
         );
     }
@@ -20,14 +20,13 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#55efc4',
     },
-    tvProfile:{
+    tvHome:{
         fontSize:20,
         marginBottom:10,
-        color:'white'
+        color: 'black'
     }
 });
 
 //make this component available to the app
-export default Profile;
+export default Home;
