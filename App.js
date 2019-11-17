@@ -7,18 +7,29 @@ import Feed from './Feed';
 
 const FirstNavGroup = createBottomTabNavigator({
 
-  HomeScreen:{
-    screen: Home,
-  },
-  FeedScreen:{
-    screen: Feed
+  NewScreen:{
+    screen: Feed,
   },
   ProfileScreen:{
     screen: Profile
   }
 },
 {
-  initialRouteName:'HomeScreen'
+  initialRouteName:'NewScreen'
 })
 
-export default createAppContainer(FirstNavGroup)
+const SecondNavGroup = createSwitchNavigator({
+
+
+  HomeScreen:{
+    screen: Home,
+  },
+  FeedScreen:{
+    screen: FirstNavGroup
+  },
+
+},{
+  initialRouteName: 'HomeScreen'
+})
+
+export default createAppContainer(SecondNavGroup)
