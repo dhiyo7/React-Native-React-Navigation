@@ -10,26 +10,29 @@ import Feed from './components/screen/Feed';
 
 const FirstNavGroup = createBottomTabNavigator({
 
-  Home:{
+  HomeScreen:{
     screen: Home,
     navigationOptions:({navigation}) => ({
+      tabBarLabel:"Home",
       tabBarIcon : ({focused, tintColor}) => {
           return <Icon name="home" size={20}  color={tintColor}  />
       }
   })
   },
 
-  Feed:{
+  FeedScreen:{
     screen: Feed,
     navigationOptions:({navigation}) => ({
+      tabBarLabel:"Feed",
       tabBarIcon:({focused, tintColor}) => {
         return <Icon name="android" size={20} color={tintColor}/>
       }
     })
   },
-  Profile:{
+  ProfileScreen:{
     screen: Profile,
     navigationOptions:({navigation}) => ({
+      tabBarLabel:"Profile",
       tabBarIcon:({focused, tintColor}) => {
         return <Icon name="user" size={20} color={tintColor}/>
       }
@@ -37,7 +40,7 @@ const FirstNavGroup = createBottomTabNavigator({
   }
 },
 {
-  initialRouteName:'Home',
+  initialRouteName:'HomeScreen',
   tabBarOptions:{
     activeTintColor:'blue',
     shadowColor: 'blue',

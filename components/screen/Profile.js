@@ -8,7 +8,7 @@ class Profile extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.tvProfile}>Profile</Text>
-                <Button title="Go to Home" onPress={() => this.props.navigation.navigate('Home')}/>
+                <Button title="Go to Home" onPress={() => this.props.navigation.navigate('HomeScreen')}/>
             </View>
         );
     }
