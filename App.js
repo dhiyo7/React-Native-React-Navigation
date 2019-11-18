@@ -7,51 +7,84 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import Home from './components/screen/Home';
 import Profile from './components/screen/Profile';
 import Feed from './components/screen/Feed';
+import Friend from './components/screen/Friend';
 
-const FirstNavGroup = createBottomTabNavigator({
+const FirstNavGroup = createStackNavigator({
 
   HomeScreen:{
     screen: Home,
-    navigationOptions:({navigation}) => ({
-      tabBarLabel:"Home",
-      tabBarIcon : ({focused, tintColor}) => {
-          return <Icon name="home" size={20}  color={tintColor}  />
-      }
-  })
+    
   },
 
   FeedScreen:{
     screen: Feed,
-    navigationOptions:({navigation}) => ({
-      tabBarLabel:"Feed",
-      tabBarIcon:({focused, tintColor}) => {
-        return <Icon name="android" size={20} color={tintColor}/>
+    navigationOptions:()=>({
+      title:'Feed',
+    })
+  },
+  
+},
+{
+  initialRouteName:'HomeScreen',
+  defaultNavigationOptions:()=>({
+    title:'PLUGIN',
+    headerStyle:{
+      backgroundColor:'#0984e3'
+    },
+    headerTintColor:'white',
+    headerTitleStyle:{
+      fontWeight:'bold'
+    }
+  }),
+  headerLayoutPreset:'center'
+  
+})
+
+const SecondNavGroup = createStackNavigator({
+  ProfileScreen:{
+    screen: Profile,
+    
+  },
+  FriendScreen:{
+    screen: Friend,
+    navigationOptions:()=>({
+      title:'Friend',
+    })
+  }
+},{
+  initialRouteName:'ProfileScreen',
+  defaultNavigationOptions:()=>({
+    title:'PLUGIN',
+    headerStyle:{
+      backgroundColor:'#0984e3'
+    },
+    headerTintColor:'white',
+    headerTitleStyle:{
+      fontWeight:'bold'
+    }
+  }),
+  headerLayoutPreset:'center'
+})
+
+const ThirdNavGroup = createBottomTabNavigator({
+  FirstNavGroup:{
+    screen: FirstNavGroup,
+    navigationOptions:({navigation}) =>({
+      tabBarLabel:"Home",
+      tabBarIcon :({focused, tintColor}) =>{
+        return <Icon name="home" size={20} color={tintColor}/>
       }
     })
   },
-  ProfileScreen:{
-    screen: Profile,
-    navigationOptions:({navigation}) => ({
+  SecondNavGroup:{
+    screen: SecondNavGroup,
+    navigationOptions:({navigation}) =>({
       tabBarLabel:"Profile",
-      tabBarIcon:({focused, tintColor}) => {
+      tabBarIcon :({focused, tintColor}) =>{
         return <Icon name="user" size={20} color={tintColor}/>
       }
     })
   }
-},
-{
-  initialRouteName:'HomeScreen',
-  tabBarOptions:{
-    activeTintColor:'blue',
-    shadowColor: 'blue',
-    // activeBackgroundColor:'#0984e3',
-    showLabel:true,
-
-    // style:{
-    //   backgroundColor:'#81ecec'
-    // } men bottom due backgorund
-  }
-  
 })
 
-export default createAppContainer(FirstNavGroup)
+export default createAppContainer(ThirdNavGroup)

@@ -1,14 +1,13 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 // create a component
-class Profile extends Component {
+class Friend extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.tvProfile}>Profile</Text>
-                <Button title="Go to Friend" onPress={() => this.props.navigation.navigate('FriendScreen')}/>
+                <Text>Friend</Text>
             </View>
         );
     }
@@ -21,12 +20,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    tvProfile:{
-        fontSize:20,
-        marginBottom:10,
-        color:'black'
-    }
 });
 
 //make this component available to the app
-export default Profile;
+export default Friend;
